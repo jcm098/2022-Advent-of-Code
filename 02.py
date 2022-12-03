@@ -22,11 +22,13 @@ def part1(data):
 
   for aGame in gamePlay:
     # print(strategyGuide.get(aGame))
-    totalScore += strategyGuide.get(aGame,0)
+    totalScore += strategyGuide.get(aGame, 0)
     # print(totalScore)
 
-  print("Total points for this Rock/Paper/Scissors strategy is " + str(totalScore))
+  print("Total points for this Rock/Paper/Scissors strategy is " +
+        str(totalScore))
   return totalScore
+
 
 def part2(data):
   strategyGuide = {
@@ -51,8 +53,9 @@ def part2(data):
 
   for aGame in gamePlay:
     # print(strategyGuide.get(aGame))
-    totalScore += strategyGuide.get(aGame,0)
+    totalScore += strategyGuide.get(aGame, 0)
     # print(totalScore)
 
-  print("Total points for this Rock/Paper/Scissors strategy is " + str(totalScore))
+  print("Total points for this Rock/Paper/Scissors strategy is " +
+        str(totalScore))
   return totalScore
