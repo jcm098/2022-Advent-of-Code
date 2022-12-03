@@ -1,5 +1,8 @@
 #  Day 3 - https://adventofcode.com/2022/day/3
 
+def common_characters(s1, s2, s3):
+    return " ".join(sorted(set(s1) & set(s2) & set(s3)))
+
 def splitString(string):
   first_half = string[0:len(string)//2]
   second_half = string[len(string)//2:]
@@ -43,6 +46,7 @@ def part2(data):
     commonItemsPart1 = set.intersection(set(ruckSacks[xLoop*3]), set(ruckSacks[(xLoop*3)+1]))
     commonItemsPart2 = ''.join(commonItemsPart1)
     commonItemsPart3 = set.intersection(set(commonItemsPart2), set(ruckSacks[(xLoop*3)+2]))
+    print(common_characters(ruckSacks[xLoop*3], ruckSacks[(xLoop*3)+1],ruckSacks[(xLoop*3)+2]))
     print(commonItemsPart3)
 
     for item in commonItemsPart3:
