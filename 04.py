@@ -3,6 +3,8 @@
 # https://pynative.com/python-range-function/#h-range-start-stop
 # https://appdividend.com/2022/11/30/convert-list-of-ints-to-string-in-python/
 
+import common as c
+
 def part1(data):
   cleaningPairs = data.split('\n')
   duplicateCleaning = 0
@@ -46,4 +48,6 @@ def part2(data):
       overlapCleaning += 1
     
   print(overlapCleaning)
+
+  # print(c.splitString2("sdsdewwe"))
   return overlapCleaning
