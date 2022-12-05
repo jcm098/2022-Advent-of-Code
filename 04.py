@@ -5,6 +5,7 @@
 
 import common as c
 
+
 def part1(data):
   cleaningPairs = data.split('\n')
   duplicateCleaning = 0
@@ -13,8 +14,8 @@ def part1(data):
     areas = pairs.split(',')
     area1 = areas[0].split('-')
     area2 = areas[1].split('-')
-    areaSet1 = set(range(int(area1[0]),int(area1[1])+1))
-    areaSet2 = set(range(int(area2[0]),int(area2[1])+1))
+    areaSet1 = set(range(int(area1[0]), int(area1[1]) + 1))
+    areaSet2 = set(range(int(area2[0]), int(area2[1]) + 1))
     # listOfStrings = map(str, listOfInts)
     print(areas)
     # print(area1[0])
@@ -25,7 +26,7 @@ def part1(data):
 
     if isDuplicate:
       duplicateCleaning += 1
-    
+
   print(duplicateCleaning)
   return duplicateCleaning
 
@@ -38,15 +39,15 @@ def part2(data):
     areas = pairs.split(',')
     area1 = areas[0].split('-')
     area2 = areas[1].split('-')
-    areaSet1 = set(range(int(area1[0]),int(area1[1])+1))
-    areaSet2 = set(range(int(area2[0]),int(area2[1])+1))
+    areaSet1 = set(range(int(area1[0]), int(area1[1]) + 1))
+    areaSet2 = set(range(int(area2[0]), int(area2[1]) + 1))
     print(areas)
     # isDuplicate = areaSet1.issubset(areaSet2) or areaSet2.issubset(areaSet1)
 
-    if not(areaSet1.isdisjoint(areaSet2)):
+    if not (areaSet1.isdisjoint(areaSet2)):
       print('overlap')
       overlapCleaning += 1
-    
+
   print(overlapCleaning)
 
   # print(c.splitString2("sdsdewwe"))
