@@ -1,4 +1,4 @@
-# Day 1 - https://adventofcode.com/20xx/day/x
+# Day 1 - https://adventofcode.com/2022/day/6
 import common as c
 
 

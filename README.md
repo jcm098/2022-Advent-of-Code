@@ -9,7 +9,7 @@ https://www.w3schools.com/python
 * Day 3 - Complete
 * Day 4 - Complete
 * Day 5 - Complete
-* Day 6 -
+* Day 6 - Complete
 * Day 7 -
 * Day 8 -
 * Day 9 -

@@ -31,3 +31,16 @@ def popFromSet(set):
   
   return lastItem
 
+def findDuplicateCharacters(str):
+  duplicate_char = []
+  
+  for character in str:
+     # check whether there are duplicate characters or not
+     # returning the frequency of a character in the string
+        if str.count(character) > 1:
+     # append to the list if it is already not present
+           if character not in duplicate_char:
+              duplicate_char.append(character)
+  # print(*duplicate_char)
+  
+  return duplicate_char
