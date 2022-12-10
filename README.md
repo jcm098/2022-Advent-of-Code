@@ -10,7 +10,7 @@ https://www.w3schools.com/python
 * Day 4 - Complete
 * Day 5 - Complete
 * Day 6 - Complete
-* Day 7 -
+* Day 7 - Complete ... difficult until I mentally put the pieces together!
 * Day 8 -
 * Day 9 -
 * Day 10 -

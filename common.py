@@ -14,11 +14,16 @@ def commonCharacters(s1, s2, s3):
   return " ".join(sorted(set(s1) & set(s2) & set(s3)))
 
 def removeCommentLines(data, comment_flag):
+  dataBreakPoint = '###BREAK###'
   outputData = []
   inputData = data.split('\n')
 
   for index, line in enumerate(inputData):
 
+    if line == dataBreakPoint:
+      print('###Data Break Initiated at line ' + str(index+1))
+      break
+    
     if line.count(comment_flag) == 0:
       outputData.append(line)
   
