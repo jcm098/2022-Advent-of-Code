@@ -11,7 +11,7 @@ https://www.w3schools.com/python
 * Day 5 - Complete
 * Day 6 - Complete
 * Day 7 - Complete ... difficult until I mentally put the pieces together!
-* Day 8 -
+* Day 8 - Finished, and tough!  Keep simple functions ... KISS!
 * Day 9 -
 * Day 10 -
 * Day 11 -
