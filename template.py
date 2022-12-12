@@ -2,8 +2,6 @@
 import common as c
 from pprint import pprint
 
-debugProd = False
-debugDev = True
 
 def part1(data):
   inputData = c.removeCommentLines(data,'#')
