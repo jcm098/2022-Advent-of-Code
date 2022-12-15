@@ -199,9 +199,25 @@ def monkeyThrowMonkeyDoBig(monkeys, worryReducer):
       # print('eval')
       if currentOp == '*':
         # print('eval mult')
-        g1 = mpz(currentOpVal1)
-        g2 = mpz(currentOpVal2)
-        valCalc = g1 * g2
+        valCalc = 0
+        # g1 = mpz(currentOpVal1)
+        # g2 = mpz(currentOpVal2)
+        # if g1 == g2:
+        #   if gmpy2.is_even(g1):
+        #     valCalc = g1 / 2
+        #     valCalc = gmpy2.square(valCalc)
+        #     valCalc = valCalc * 2
+        #   else:
+        #     valCalc = gmpy2.square(g2)
+        # else:
+        #   valCalc = g1 * g2
+        valCalc = gmpy2.mul(currentOpVal1, currentOpVal2)
+        # if g1 == g2:
+        #   valCalc = g1**2
+        # else:
+        #   for x in range(1,g2+1):
+        #     # print('x',x)
+        #     valCalc += g1
         # valCalc = currentOpVal1 * currentOpVal2
         # valCalc = karatsuba(currentOpVal1, currentOpVal2)
         # valCalc = bigMultiply(currentOpVal1,currentOpVal2)
@@ -210,7 +226,7 @@ def monkeyThrowMonkeyDoBig(monkeys, worryReducer):
         # valCalc = f1 * f2
         # valCalc = math.prod([currentOpVal1, currentOpVal2])
         # print('eval mult assign')
-        currentItem = int(valCalc)
+        currentItem = valCalc
         # currentItem = int(currentOpVal1) * int(currentOpVal2)
         # currentItem = math.prod(my_list1)
       elif currentOp == '+':
