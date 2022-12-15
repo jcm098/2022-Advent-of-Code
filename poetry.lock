@@ -140,6 +140,14 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "gmpy2"
+version = "2.1.4"
+description = "gmpy2 interface to GMP/MPIR, MPFR, and MPC for Python 2.7 and 3.5+"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -501,7 +509,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.0,<3.9"
-content-hash = "195a3b1831bb67523d23ae99b83f13a9ac105f348af7558230335df36de4cc3a"
+content-hash = "f6f36abd91b3d2caf531ec47aca0166e81eebc50ac41e112543a093a415fcbe4"
 
 [metadata.files]
 aiohttp = []
@@ -516,6 +524,7 @@ colorama = []
 debugpy = []
 flask = []
 frozenlist = []
+gmpy2 = []
 idna = []
 importlib-metadata = []
 itsdangerous = []
