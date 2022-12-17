@@ -5,6 +5,15 @@
 # https://reactgo.com/python-check-if-number-divisible-by-another/#:~:text=To%20check%20if%20a%20number%20is%20divisible%20by,of%20another%20number%20otherwise%20it%20not%20a%20divisible.
 # https://stackoverflow.com/questions/10121861/dividing-large-numbers-in-python#:~:text=If%20you%20need%20precision%2C%20avoid%20floating%20point%20arithmetic,divisor%20-%201%20to%20the%20dividend%20before%20dividing.
 
+# for part 2, I asked ChatGPT the following ...
+#
+# What is the most efficient way to multiply very large numbers?
+#
+# ... it said ...
+#
+# One of the most efficient ways to multiply very large numbers is to use the Fast Fourier Transform (FFT) algorithm. This algorithm uses a divide-and-conquer approach to compute the product of two large numbers in O(n log n) time, which is much faster than the naive O(n^2) algorithm for multiplication. To use the FFT algorithm, you need to represent the numbers as polynomials and use the FFT to compute the product of the polynomials, which will give you the product of the original numbers.
+
+
 import common as c
 from decimal import Decimal
 import gmpy2
@@ -172,9 +181,13 @@ def bigMultiply(n, m):
 
 def monkeyThrowMonkeyDoBig(monkeys, worryReducer):
   currentItem = 0
+  currentGCD = 1
   currentOperation = ''
 
   for throw in monkeys:
+    # if (throw % 100) == 0:
+    #   currentGCD = getMonkeyGCD(monkeys, throw)
+    # print('gcd', currentGCD, 'monkey', throw)
     for item in monkeys[throw]['items']:
       currentItem = int(item)
       monkeys[throw]['inspection count'] += 1
@@ -193,6 +206,7 @@ def monkeyThrowMonkeyDoBig(monkeys, worryReducer):
       
       if currentOpVal2 == 'old': 
         currentOpVal2 = int(currentItem)
+        # currentOpVal2 = 1
       else:
         currentOpVal2 = int(currentOpVal2)
 
@@ -237,6 +251,8 @@ def monkeyThrowMonkeyDoBig(monkeys, worryReducer):
       # currentItem = math.floor(currentItem / worryReducer)
       # startTime = time.time()
       # print('div')
+      if currentGCD > 1:
+        currentItem = (currentItem - 1) // currentGCD + 1
       currentItem = (currentItem - 1) // worryReducer + 1
       # endTime = time.time()
       # print('div time', int((endTime-startTime) * 10**3), "ms")
@@ -258,7 +274,7 @@ def monkeyThrowMonkeyDoBig(monkeys, worryReducer):
       else:
         targetMonkey = monkeys[throw]['if false']
         monkeys[targetMonkey]['items'].append(currentItem)
-      currentItem = (currentItem - 1) // worryReducer + 1
+      # currentItem = (currentItem - 1) // worryReducer + 1
       # endTime = time.time()
       # print('mod time', int((endTime-startTime) * 10**3), "ms")
         
@@ -315,19 +331,62 @@ def karatsuba(x,y):
   
   return prod
 
+# https://byjus.com/maths/greatest-common-divisor/
+# https://www.geeksforgeeks.org/python-program-for-gcd-of-more-than-two-or-array-numbers/
+def getMonkeyGCD(monkeys, theMonkey):
+  gcd = 1
+  gcdNumbers = [*()]
+
+  if theMonkey == -1:
+    for monkey in monkeys:
+      for item in monkeys[monkey]['items']:
+        gcdNumbers.append(item)
+  else:
+    gcdNumbers.append(item)
+
+  if len(gcdNumbers) < 2:
+    # print(gcdNumbers)
+    # print('lt2')
+    return 1
+
+  # print(gcdNumbers)
+  gcd = find_gcd(gcdNumbers[0],gcdNumbers[1])
+
+  for i in range(2,len(gcdNumbers)):
+  	gcd = find_gcd(gcd,gcdNumbers[i])
+  # gcdNumbers.append(mpz(15))
+
+  # print(gcdNumbers)
+    
+  return gcd
+
+# GCD of more than two (or array) numbers
+# This function implements the Euclidian
+# algorithm to find H.C.F. of two number
+
+# Code contributed by Mohit Gupta_OMG
+def find_gcd(x, y):
+  while(y):
+    x, y = y, x % y
+  return x
 
 def part2(data):
 
   monkeys = {}
   throwCount = [*()]
   currentMonkey = 0
-  throwIterations = 10000
+  throwIterations = 1000
   inputData = c.removeCommentLines(data,'#')
 
   monkeys = loadMonkeyDataBig(inputData)
 
   #throw the items
   for throws in range(1, throwIterations+1):
+
+    if (throws % 25) == 0:
+      currentGCD = getMonkeyGCD(monkeys, -1)
+      print('gcd', currentGCD)
+  
     startTime = time.time()
     monkeys = monkeyThrowMonkeyDoBig(monkeys, 1)
     endTime = time.time()
@@ -340,7 +399,7 @@ def part2(data):
   for monkey in monkeys:
     throwCount.append(monkeys[monkey]["inspection count"])
 
-  # pprint(monkeys)
+  pprint(monkeys)
   pprint(throwCount)
   throwCount.sort(reverse = True)
   pprint(throwCount)
